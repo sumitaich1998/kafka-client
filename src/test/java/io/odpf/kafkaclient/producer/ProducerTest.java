@@ -1,6 +1,7 @@
 package io.odpf.kafkaclient.producer;
 
 import org.apache.kafka.clients.producer.RecordMetadata;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,8 +10,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.concurrent.Future;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 
 public class ProducerTest {
 
@@ -63,5 +63,10 @@ public class ProducerTest {
         } catch (Exception e) {
             assertEquals(InvalidNumberOfArgumentsException.class, e.getClass());
         }
+    }
+
+    @After
+    public void tearDown() {
+        assertTrue(propertiesFile.delete());
     }
 }
