@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+run {
+    standardInput = System.in
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    mainClass = 'io.odpf.kafkaclient.console.Console'
+}
+
+dependencies {
+    implementation group: 'org.apache.kafka', name: 'kafka_2.13', version: '2.8.0'
+    implementation group: 'org.apache.kafka', name: 'kafka-clients', version: '2.8.0'
+    testImplementation group: 'org.junit.platform', name: 'junit-platform-console-standalone', version: '1.7.0'
+    compile "org.slf4j:slf4j-simple:1.7.30"
+}
+
+test {
+    useJUnitPlatform()
+}
