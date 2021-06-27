@@ -25,6 +25,9 @@ public class Producer extends Client {
         String value = eventData[eventData.length - 1];
 
         switch (eventData.length) {
+            case 2: {
+                return kafkaProducer.send(new ProducerRecord<>(topic, value));
+            }
             case 3: {
                 String key = eventData[1];
                 return kafkaProducer.send(new ProducerRecord<>(topic, key, value));
