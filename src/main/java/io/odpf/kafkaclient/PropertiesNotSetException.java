@@ -9,7 +9,7 @@ public class PropertiesNotSetException extends RuntimeException {
 
     @Override
     public void printStackTrace() {
-        Logger log = Logger.getLogger("my.logger");
+        Logger log = Logger.getLogger("client.logger");
         log.setLevel(Level.ALL);
         ConsoleHandler handler = new ConsoleHandler();
 
