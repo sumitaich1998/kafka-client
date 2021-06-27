@@ -1,5 +1,6 @@
 package io.odpf.kafkaclient;
 
+import java.io.IOException;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,4 +21,6 @@ public abstract class Client {
     protected Logger getLog() {
         return log;
     }
+
+    public abstract void interact() throws IOException;
 }
