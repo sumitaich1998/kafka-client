@@ -47,6 +47,15 @@ public class ProducerTest {
     }
 
     @Test
+    public void shouldWriteEventWithoutKeyInput() {
+        String topic = "instagram_notifications";
+        String value = "new_post_like";
+        Future<RecordMetadata> future = producer.writeEvent(topic, value);
+
+        assertFalse(future.isCancelled());
+    }
+
+    @Test
     public void shouldWriteEventWithKeyInput() {
         String topic = "instagram_notifications";
         String key = "a";
