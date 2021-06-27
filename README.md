@@ -12,7 +12,7 @@ Simple app to demonstrate the Kafka Producer and Consumer client library.
 
 ```sh
 # Clone the repo
-$ git clone https://github.com/sumitaich1998/kafka-example  
+$ git clone https://github.com/sumitaich1998/kafka-client
 
 # Build the jar
 $ ./gradlew clean build 
