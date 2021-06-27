@@ -20,7 +20,7 @@ public class Producer extends Client {
     }
 
     public Future<RecordMetadata> writeEvent(String... eventData) {
-        return null;
+        throw new InvalidNumberOfArgumentsException();
     }
 
     @Override
