@@ -1,13 +1,16 @@
 package io.odpf.kafkaclient.producer;
 
+import org.apache.kafka.clients.producer.RecordMetadata;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.util.concurrent.Future;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class ProducerTest {
 
@@ -41,6 +44,16 @@ public class ProducerTest {
             e.printStackTrace();
         }
         producer = producerFactory.create();
+    }
+
+    @Test
+    public void shouldWriteEventWithKeyInput() {
+        String topic = "instagram_notifications";
+        String key = "a";
+        String value = "new_post_like";
+        Future<RecordMetadata> future = producer.writeEvent(topic, key, value);
+
+        assertFalse(future.isCancelled());
     }
 
     @Test
