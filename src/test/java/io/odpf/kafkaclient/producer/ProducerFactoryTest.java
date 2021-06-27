@@ -1,5 +1,6 @@
 package io.odpf.kafkaclient.producer;
 
+import io.odpf.kafkaclient.Client;
 import io.odpf.kafkaclient.PropertiesNotSetException;
 import org.junit.After;
 import org.junit.Before;
@@ -37,6 +38,20 @@ public class ProducerFactoryTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void shouldCreateProducer() {
+        ProducerFactory producerFactory = new ProducerFactory();
+
+        try {
+            producerFactory.configure(propertiesFile);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Client client = producerFactory.create();
+        assertEquals(Producer.class, client.getClass());
     }
 
     @Test
