@@ -11,6 +11,7 @@ public class NullTopicException extends RuntimeException {
     public void printStackTrace() {
         Logger log = Logger.getLogger("client.logger");
         log.setLevel(Level.ALL);
+
         ConsoleHandler handler = new ConsoleHandler();
         handler.setLevel(Level.ALL);
         handler.setFormatter(new SimpleFormatter());
