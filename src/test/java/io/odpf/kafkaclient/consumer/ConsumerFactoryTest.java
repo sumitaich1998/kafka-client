@@ -1,10 +1,14 @@
 package io.odpf.kafkaclient.consumer;
 
+import io.odpf.kafkaclient.Client;
 import org.junit.Before;
+import org.junit.Test;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+
+import static org.junit.Assert.assertEquals;
 
 public class ConsumerFactoryTest {
 
@@ -29,5 +33,19 @@ public class ConsumerFactoryTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void shouldCreateConsumer() {
+        ConsumerFactory consumerFactory = new ConsumerFactory();
+
+        try {
+            consumerFactory.configure(propertiesFile);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Client client = consumerFactory.create();
+        assertEquals(Consumer.class, client.getClass());
     }
 }
