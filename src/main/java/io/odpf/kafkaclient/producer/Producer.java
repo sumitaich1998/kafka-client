@@ -2,6 +2,7 @@ package io.odpf.kafkaclient.producer;
 
 import io.odpf.kafkaclient.Client;
 import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 
 import java.io.BufferedReader;
@@ -20,7 +21,17 @@ public class Producer extends Client {
     }
 
     public Future<RecordMetadata> writeEvent(String... eventData) {
-        throw new InvalidNumberOfArgumentsException();
+        String topic = eventData[0];
+        String value = eventData[eventData.length - 1];
+
+        switch (eventData.length) {
+            case 3: {
+                String key = eventData[1];
+                return kafkaProducer.send(new ProducerRecord<>(topic, key, value));
+            }
+            default:
+                throw new InvalidNumberOfArgumentsException();
+        }
     }
 
     @Override
