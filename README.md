@@ -20,6 +20,12 @@ $ ./gradlew clean build
 # Run the Kafka Client app
 $ ./gradlew run --args='<producer/consumer> <properties file path>' 
 
+# To Run the Producer Client with default properties
+$ ./gradlew run --args='producer producer.properties' 
+
+# To Run the Consumer Client with default properties
+$ ./gradlew run --args='consumer consumer.properties' 
+
 ```
 
 ## Running tests
