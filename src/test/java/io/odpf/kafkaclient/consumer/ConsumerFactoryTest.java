@@ -1,6 +1,7 @@
 package io.odpf.kafkaclient.consumer;
 
 import io.odpf.kafkaclient.Client;
+import io.odpf.kafkaclient.PropertiesNotSetException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -47,5 +48,16 @@ public class ConsumerFactoryTest {
 
         Client client = consumerFactory.create();
         assertEquals(Consumer.class, client.getClass());
+    }
+
+    @Test
+    public void shouldThrowPropertiesNotSetExceptionWhenNotConfigured() {
+        ConsumerFactory consumerFactory = new ConsumerFactory();
+
+        try {
+            consumerFactory.create();
+        } catch (Exception e) {
+            assertEquals(PropertiesNotSetException.class, e.getClass());
+        }
     }
 }
