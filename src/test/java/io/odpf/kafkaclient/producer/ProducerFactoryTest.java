@@ -1,10 +1,14 @@
 package io.odpf.kafkaclient.producer;
 
+import io.odpf.kafkaclient.PropertiesNotSetException;
 import org.junit.Before;
+import org.junit.Test;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+
+import static org.junit.Assert.assertEquals;
 
 public class ProducerFactoryTest {
 
@@ -30,6 +34,17 @@ public class ProducerFactoryTest {
             bufferedWriter.close();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void shouldThrowPropertiesNotSetExceptionWhenNotConfigured() {
+        ProducerFactory producerFactory = new ProducerFactory();
+
+        try {
+            producerFactory.create();
+        } catch (Exception e) {
+            assertEquals(PropertiesNotSetException.class, e.getClass());
         }
     }
 }
