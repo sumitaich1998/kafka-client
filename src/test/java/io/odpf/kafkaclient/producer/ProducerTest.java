@@ -1,10 +1,13 @@
 package io.odpf.kafkaclient.producer;
 
 import org.junit.Before;
+import org.junit.Test;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+
+import static org.junit.Assert.assertEquals;
 
 public class ProducerTest {
 
@@ -38,5 +41,14 @@ public class ProducerTest {
             e.printStackTrace();
         }
         producer = producerFactory.create();
+    }
+
+    @Test
+    public void shouldThrowInvalidNumberOfArgumentsExceptionWhenSingleArgument() {
+        try {
+            producer.writeEvent("instagram_notifications");
+        } catch (Exception e) {
+            assertEquals(InvalidNumberOfArgumentsException.class, e.getClass());
+        }
     }
 }
