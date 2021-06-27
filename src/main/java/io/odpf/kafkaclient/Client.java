@@ -16,4 +16,8 @@ public abstract class Client {
         handler.setFormatter(new SimpleFormatter());
         log.addHandler(handler);
     }
+
+    protected Logger getLog() {
+        return log;
+    }
 }
