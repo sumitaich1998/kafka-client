@@ -25,4 +25,7 @@ public abstract class ClientFactory {
     protected final Properties getProperties() {
         return properties;
     }
+
+    public abstract Client create();
+
 }
