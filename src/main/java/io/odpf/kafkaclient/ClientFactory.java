@@ -21,4 +21,8 @@ public abstract class ClientFactory {
             properties.put(property, value);
         }
     }
+
+    protected final Properties getProperties() {
+        return properties;
+    }
 }
