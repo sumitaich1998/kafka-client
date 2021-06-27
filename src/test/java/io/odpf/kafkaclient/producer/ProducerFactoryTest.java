@@ -19,7 +19,6 @@ public class ProducerFactoryTest {
 
     @Before
     public void setUp() {
-
         propertiesFile = new File("producer_temp.properties");
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(propertiesFile));
@@ -32,7 +31,6 @@ public class ProducerFactoryTest {
             bufferedWriter.write("buffer.memory 33554432\n");
             bufferedWriter.write("key.serializer org.apache.kafka.common.serialization.StringSerializer\n");
             bufferedWriter.write("value.serializer org.apache.kafka.common.serialization.StringSerializer");
-
             bufferedWriter.flush();
             bufferedWriter.close();
         } catch (Exception e) {
