@@ -39,6 +39,13 @@ public class Producer extends Client {
 
     @Override
     public void interact() throws IOException {
+        getLog().info("Enter input in the format - <topic> <key> <value> . Key is optional");
 
+        while (true) {
+            String inputString = bufferedReader.readLine();
+            String[] inputStringTokens = inputString.split(" ");
+
+            writeEvent(inputStringTokens);
+        }
     }
 }
