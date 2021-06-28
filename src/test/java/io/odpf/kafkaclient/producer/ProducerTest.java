@@ -24,14 +24,14 @@ public class ProducerTest {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(propertiesFile));
 
             bufferedWriter.write("producer\n");
-            bufferedWriter.write("bootstrap.servers localhost:9092\n");
-            bufferedWriter.write("acks all\n");
-            bufferedWriter.write("retries 0\n");
-            bufferedWriter.write("batch.size 16384\n");
-            bufferedWriter.write("linger.ms 1\n");
-            bufferedWriter.write("buffer.memory 33554432\n");
-            bufferedWriter.write("key.serializer org.apache.kafka.common.serialization.StringSerializer\n");
-            bufferedWriter.write("value.serializer org.apache.kafka.common.serialization.StringSerializer\n");
+            bufferedWriter.write("bootstrap.servers=localhost:9092\n");
+            bufferedWriter.write("acks=all\n");
+            bufferedWriter.write("retries=0\n");
+            bufferedWriter.write("batch.size=16384\n");
+            bufferedWriter.write("linger.ms=1\n");
+            bufferedWriter.write("buffer.memory=33554432\n");
+            bufferedWriter.write("key.serializer=org.apache.kafka.common.serialization.StringSerializer\n");
+            bufferedWriter.write("value.serializer=org.apache.kafka.common.serialization.StringSerializer\n");
             bufferedWriter.flush();
             bufferedWriter.close();
         } catch (Exception e) {

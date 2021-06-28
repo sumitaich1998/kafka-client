@@ -23,13 +23,13 @@ public class ConsumerTest {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(propertiesFile));
 
             bufferedWriter.write("consumer\n");
-            bufferedWriter.write("bootstrap.servers localhost:9092\n");
-            bufferedWriter.write("group.id test\n");
-            bufferedWriter.write("enable.auto.commit true\n");
-            bufferedWriter.write("auto.commit.interval.ms 1000\n");
-            bufferedWriter.write("session.timeout.ms 30000\n");
-            bufferedWriter.write("key.deserializer org.apache.kafka.common.serialization.StringDeserializer\n");
-            bufferedWriter.write("value.deserializer org.apache.kafka.common.serialization.StringDeserializer\n");
+            bufferedWriter.write("bootstrap.servers=localhost:9092\n");
+            bufferedWriter.write("group.id=test\n");
+            bufferedWriter.write("enable.auto.commit=true\n");
+            bufferedWriter.write("auto.commit.interval.ms=1000\n");
+            bufferedWriter.write("session.timeout.ms=30000\n");
+            bufferedWriter.write("key.deserializer=org.apache.kafka.common.serialization.StringDeserializer\n");
+            bufferedWriter.write("value.deserializer=org.apache.kafka.common.serialization.StringDeserializer\n");
             bufferedWriter.flush();
             bufferedWriter.close();
         } catch (Exception e) {
