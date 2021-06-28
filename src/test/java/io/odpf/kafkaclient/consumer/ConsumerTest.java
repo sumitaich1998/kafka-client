@@ -66,10 +66,8 @@ public class ConsumerTest {
         String topic = "instagram-notifications";
         ArrayList<String> eventList = consumer.readEvent(topic);
 
-        eventList.forEach((eventData) -> {
-            assertTrue(eventData.contains("topic")
-                    && eventData.contains("key") && eventData.contains("value"));
-        });
+        eventList.forEach((eventData) -> assertTrue(eventData.contains("topic")
+                && eventData.contains("key") && eventData.contains("value")));
     }
 
     @After
