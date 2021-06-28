@@ -1,25 +1,15 @@
 package io.odpf.kafkaclient;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
 
 public abstract class Client {
-    private final Logger log;
-
-    public Client() {
-        log = Logger.getLogger("Client");
-        log.setLevel(Level.ALL);
-        ConsoleHandler handler = new ConsoleHandler();
-        handler.setLevel(Level.ALL);
-        handler.setFormatter(new SimpleFormatter());
-        log.addHandler(handler);
-    }
+    private static final Logger LOGGER = LoggerFactory.getLogger(Client.class);
 
     protected Logger getLog() {
-        return log;
+        return LOGGER;
     }
 
     public abstract void interact() throws IOException;
