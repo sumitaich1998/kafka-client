@@ -23,7 +23,7 @@ public class Consumer extends Client {
         bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     }
 
-    public ArrayList<String> readEvent(String topic) {
+    ArrayList<String> readEvent(String topic) {
         if (topic == null) throw new NullTopicException("Topic cannot be null");
         if (this.topic == null || !(this.topic.equals(topic))) {
             this.topic = topic;
@@ -33,7 +33,7 @@ public class Consumer extends Client {
         ConsumerRecords<String, String> records = kafkaConsumer.poll(Duration.ofMillis(100));
 
         for (ConsumerRecord<String, String> record : records)
-            recordList.add("topic="+record.topic() + " key=" + record.key() + " value=" + record.value());
+            recordList.add("topic=" + record.topic() + " key=" + record.key() + " value=" + record.value());
         return recordList;
     }
 
