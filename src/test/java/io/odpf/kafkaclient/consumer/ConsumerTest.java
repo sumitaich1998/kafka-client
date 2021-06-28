@@ -8,9 +8,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class ConsumerTest {
     File propertiesFile;
@@ -51,6 +51,14 @@ public class ConsumerTest {
         } catch (Exception e) {
             assertEquals(NullTopicException.class, e.getClass());
         }
+    }
+
+    @Test
+    public void shouldNotReturnNullList() {
+        String topic = "instagram-notifications";
+        ArrayList<String> eventData = consumer.readEvent(topic);
+
+        assertNotNull(eventData);
     }
 
     @After
