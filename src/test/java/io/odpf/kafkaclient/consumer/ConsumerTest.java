@@ -56,9 +56,9 @@ public class ConsumerTest {
     @Test
     public void shouldNotReturnNullList() {
         String topic = "instagram-notifications";
-        ArrayList<String> eventData = consumer.readEvent(topic);
+        ArrayList<String> eventList = consumer.readEvent(topic);
 
-        assertNotNull(eventData);
+        assertNotNull(eventList);
     }
 
     @Test
