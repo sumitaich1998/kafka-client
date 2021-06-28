@@ -1,11 +1,14 @@
 package io.odpf.kafkaclient.consumer;
 
 import org.junit.Before;
+import org.junit.Test;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+
+import static org.junit.Assert.assertEquals;
 
 public class ConsumerTest {
     File propertiesFile;
@@ -37,5 +40,14 @@ public class ConsumerTest {
             e.printStackTrace();
         }
         consumer = consumerFactory.create();
+    }
+
+    @Test
+    public void shouldThrowNullTopicExceptionWhenNullTopicPassed() {
+        try {
+            consumer.readEvent(null);
+        } catch (Exception e) {
+            assertEquals(NullTopicException.class, e.getClass());
+        }
     }
 }
