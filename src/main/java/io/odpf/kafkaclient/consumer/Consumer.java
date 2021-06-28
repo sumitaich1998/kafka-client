@@ -20,6 +20,7 @@ public class Consumer extends Client {
     }
 
     public ArrayList<String> readEvent(String topic) {
+        if (topic == null) throw new NullTopicException();
         return new ArrayList<>();
     }
 
