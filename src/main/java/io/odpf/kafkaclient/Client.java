@@ -10,7 +10,7 @@ public abstract class Client {
     private final Logger log;
 
     public Client() {
-        log = Logger.getLogger("client.logger");
+        log = Logger.getLogger("Client");
         log.setLevel(Level.ALL);
         ConsoleHandler handler = new ConsoleHandler();
         handler.setLevel(Level.ALL);
