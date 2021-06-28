@@ -23,6 +23,7 @@ public class ProducerTest {
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(propertiesFile));
 
+            bufferedWriter.write("producer\n");
             bufferedWriter.write("bootstrap.servers localhost:9092\n");
             bufferedWriter.write("acks all\n");
             bufferedWriter.write("retries 0\n");

@@ -24,6 +24,7 @@ public class ConsumerFactoryTest {
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(propertiesFile));
 
+            bufferedWriter.write("consumer\n");
             bufferedWriter.write("bootstrap.servers localhost:9092\n");
             bufferedWriter.write("group.id test\n");
             bufferedWriter.write("enable.auto.commit true\n");
