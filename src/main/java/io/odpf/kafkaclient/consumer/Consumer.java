@@ -25,7 +25,7 @@ public class Consumer extends Client {
     }
 
     public ArrayList<String> readEvent(String topic) {
-        if (topic == null) throw new NullTopicException();
+        if (topic == null) throw new NullTopicException("Topic cannot be null");
         if (this.topic == null || !(this.topic.equals(topic))) {
             this.topic = topic;
             kafkaConsumer.subscribe(Collections.singletonList(topic));
