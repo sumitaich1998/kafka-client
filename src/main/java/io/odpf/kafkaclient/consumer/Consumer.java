@@ -20,7 +20,7 @@ public class Consumer extends Client {
 
     public Consumer(KafkaConsumer<String, String> kafkaConsumer) {
         this.kafkaConsumer = kafkaConsumer;
-        bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        this.bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     }
 
     ArrayList<String> readEvent(String topic) {
