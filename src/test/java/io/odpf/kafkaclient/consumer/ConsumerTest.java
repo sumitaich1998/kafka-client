@@ -61,6 +61,17 @@ public class ConsumerTest {
         assertNotNull(eventData);
     }
 
+    @Test
+    public void shouldReadEvent() {
+        String topic = "instagram-notifications";
+        ArrayList<String> eventList = consumer.readEvent(topic);
+
+        eventList.forEach((eventData) -> {
+            assertTrue(eventData.contains("topic")
+                    && eventData.contains("key") && eventData.contains("value"));
+        });
+    }
+
     @After
     public void tearDown() {
         assertTrue(propertiesFile.delete());
