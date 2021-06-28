@@ -28,7 +28,7 @@ public class ConsumerTest {
             bufferedWriter.write("auto.commit.interval.ms 1000\n");
             bufferedWriter.write("session.timeout.ms 30000\n");
             bufferedWriter.write("key.deserializer org.apache.kafka.common.serialization.StringDeserializer\n");
-            bufferedWriter.write("value.deserializer org.apache.kafka.common.serialization.StringDeserializer");
+            bufferedWriter.write("value.deserializer org.apache.kafka.common.serialization.StringDeserializer\n");
             bufferedWriter.flush();
             bufferedWriter.close();
         } catch (Exception e) {
