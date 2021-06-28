@@ -16,7 +16,7 @@ public abstract class ClientFactory {
         properties = new Properties();
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-        String propertyText = "";
+        String propertyText;
 
         if (this.getClass().equals(ProducerFactory.class)) {
             while (!(propertyText = bufferedReader.readLine()).equals("producer")) ;
