@@ -20,7 +20,7 @@ public class ConsumerFactoryTest {
     @Before
     public void setUp() {
 
-        propertiesFile = new File("consumer_temp.properties");
+        propertiesFile = new File("src/main/resources/consumer_temp.properties");
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(propertiesFile));
 

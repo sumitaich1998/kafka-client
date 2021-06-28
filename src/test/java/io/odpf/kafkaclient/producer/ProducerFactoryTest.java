@@ -19,7 +19,7 @@ public class ProducerFactoryTest {
 
     @Before
     public void setUp() {
-        propertiesFile = new File("producer_temp.properties");
+        propertiesFile = new File("src/main/resources/producer_temp.properties");
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(propertiesFile));
 
