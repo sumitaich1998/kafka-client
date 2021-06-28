@@ -33,7 +33,7 @@ public class Producer extends Client {
                 return kafkaProducer.send(new ProducerRecord<>(topic, key, value));
             }
             default:
-                throw new InvalidNumberOfArgumentsException();
+                throw new InvalidNumberOfArgumentsException("Number of arguments should be 2 or 3");
         }
     }
 
