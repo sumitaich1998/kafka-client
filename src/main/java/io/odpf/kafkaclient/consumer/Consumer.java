@@ -39,7 +39,7 @@ public class Consumer extends Client {
 
     @Override
     public void interact() throws IOException {
-        getLog().config("Enter topic to subscribe to");
+        getLog().info("Enter topic to subscribe to");
         String topic = bufferedReader.readLine();
 
         while (true) {
