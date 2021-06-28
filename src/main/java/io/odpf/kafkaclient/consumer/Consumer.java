@@ -39,7 +39,7 @@ public class Consumer extends Client {
             e.printStackTrace();
         }
         for (ConsumerRecord<String, String> record : records)
-            recordList.add(record.topic() + " " + record.key() + " " + record.value());
+            recordList.add("topic="+record.topic() + " key=" + record.key() + " value=" + record.value());
         return recordList;
     }
 
