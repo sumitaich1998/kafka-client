@@ -20,7 +20,7 @@ public class Producer extends Client {
         bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     }
 
-    public Future<RecordMetadata> writeEvent(String... eventData) {
+    Future<RecordMetadata> writeEvent(String... eventData) {
         String topic = eventData[0];
         String value = eventData[eventData.length - 1];
 
