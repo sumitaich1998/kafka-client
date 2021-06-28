@@ -19,6 +19,7 @@ public abstract class ClientFactory {
         String propertyText = "";
 
         if (this.getClass().equals(ProducerFactory.class)) {
+            while (!(propertyText = bufferedReader.readLine()).equals("producer")) ;
             while ((propertyText = bufferedReader.readLine()) != null &&
                     !propertyText.equals("consumer")) {
                 if (propertyText.equals("producer")) continue;
@@ -30,9 +31,9 @@ public abstract class ClientFactory {
         }
 
         if (this.getClass().equals(ConsumerFactory.class)) {
+            while (!(propertyText = bufferedReader.readLine()).equals("consumer")) ;
             while ((propertyText = bufferedReader.readLine()) != null &&
                     !propertyText.equals("producer")) {
-                if (propertyText.equals("consumer")) continue;
                 String property = propertyText.split("=")[0];
                 String value = propertyText.split("=")[1];
 
