@@ -11,7 +11,6 @@ import java.io.InputStreamReader;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.concurrent.TimeUnit;
 
 public class Consumer extends Client {
 
@@ -31,13 +30,8 @@ public class Consumer extends Client {
             kafkaConsumer.subscribe(Collections.singletonList(topic));
         }
         ArrayList<String> recordList = new ArrayList<>();
-        ConsumerRecords<String, String> records = kafkaConsumer.poll(Duration.ofMillis(10));
+        ConsumerRecords<String, String> records = kafkaConsumer.poll(Duration.ofMillis(100));
 
-        try {
-            TimeUnit.MILLISECONDS.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         for (ConsumerRecord<String, String> record : records)
             recordList.add("topic="+record.topic() + " key=" + record.key() + " value=" + record.value());
         return recordList;
