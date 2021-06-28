@@ -1,5 +1,8 @@
 package io.odpf.kafkaclient;
 
+import io.odpf.kafkaclient.consumer.ConsumerFactory;
+import io.odpf.kafkaclient.producer.ProducerFactory;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -14,11 +17,27 @@ public abstract class ClientFactory {
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
         String propertyText = "";
-        while ((propertyText = bufferedReader.readLine()) != null) {
-            String property = propertyText.split(" ")[0];
-            String value = propertyText.split(" ")[1];
 
-            properties.put(property, value);
+        if (this.getClass().equals(ProducerFactory.class)) {
+            while ((propertyText = bufferedReader.readLine()) != null &&
+                    !propertyText.equals("consumer")) {
+                if (propertyText.equals("producer")) continue;
+                String property = propertyText.split(" ")[0];
+                String value = propertyText.split(" ")[1];
+
+                properties.put(property, value);
+            }
+        }
+
+        if (this.getClass().equals(ConsumerFactory.class)) {
+            while ((propertyText = bufferedReader.readLine()) != null &&
+                    !propertyText.equals("producer")) {
+                if (propertyText.equals("consumer")) continue;
+                String property = propertyText.split(" ")[0];
+                String value = propertyText.split(" ")[1];
+
+                properties.put(property, value);
+            }
         }
     }
 
