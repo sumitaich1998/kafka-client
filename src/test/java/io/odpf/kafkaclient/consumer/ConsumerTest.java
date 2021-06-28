@@ -1,5 +1,6 @@
 package io.odpf.kafkaclient.consumer;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ConsumerTest {
     File propertiesFile;
@@ -49,5 +51,10 @@ public class ConsumerTest {
         } catch (Exception e) {
             assertEquals(NullTopicException.class, e.getClass());
         }
+    }
+
+    @After
+    public void tearDown() {
+        assertTrue(propertiesFile.delete());
     }
 }
