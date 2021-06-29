@@ -24,7 +24,6 @@ public class Consumer extends Client {
 
     ArrayList<String> readEvent() {
         if (topicList == null) throw new NullTopicException("Topic cannot be null");
-
         ArrayList<String> recordList = new ArrayList<>();
         ConsumerRecords<String, String> records = kafkaConsumer.poll(Duration.ofMillis(100));
 
