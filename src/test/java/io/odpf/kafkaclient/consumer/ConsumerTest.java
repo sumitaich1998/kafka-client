@@ -60,7 +60,6 @@ public class ConsumerTest {
         ArrayList<String> topicList= new ArrayList<>(Arrays.asList("instagram-notifications"));
         consumer.subscribe(topicList);
         ArrayList<String> eventList = consumer.readEvent();
-
         assertNotNull(eventList);
     }
 
