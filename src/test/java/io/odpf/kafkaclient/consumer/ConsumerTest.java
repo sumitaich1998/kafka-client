@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
@@ -48,7 +49,7 @@ public class ConsumerTest {
     @Test
     public void shouldThrowNullTopicExceptionWhenNullTopicPassed() {
         try {
-            consumer.readEvent(null);
+            consumer.readEvent();
         } catch (Exception e) {
             assertEquals(NullTopicException.class, e.getClass());
         }
@@ -56,16 +57,18 @@ public class ConsumerTest {
 
     @Test
     public void shouldNotReturnNullList() {
-        String topic = "instagram-notifications";
-        ArrayList<String> eventList = consumer.readEvent(topic);
+        ArrayList<String> topicList= new ArrayList<>(Arrays.asList("instagram-notifications"));
+        consumer.subscribe(topicList);
+        ArrayList<String> eventList = consumer.readEvent();
 
         assertNotNull(eventList);
     }
 
     @Test
     public void shouldReadEvent() {
-        String topic = "instagram-notifications";
-        ArrayList<String> eventList = consumer.readEvent(topic);
+        ArrayList<String> topicList= new ArrayList<>(Arrays.asList("instagram-notifications"));
+        consumer.subscribe(topicList);
+        ArrayList<String> eventList = consumer.readEvent();
 
         eventList.forEach((eventData) -> assertTrue(eventData.contains("topic")
                 && eventData.contains("key") && eventData.contains("value")));
