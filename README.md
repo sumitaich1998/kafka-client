@@ -18,7 +18,7 @@ $ git clone https://github.com/sumitaich1998/kafka-client
 $ ./gradlew clean build 
 
 # Run the Kafka Client app
-$ ./gradlew run --args='<producer/consumer> <properties file path>' 
+$ ./gradlew run --args='<producer/consumer> src/main/resources/client.properties' 
 
 ```
 
