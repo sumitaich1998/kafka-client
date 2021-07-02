@@ -13,11 +13,11 @@ public interface ProducerConfig extends CoreConfig{
 
     @Key("batch.size")
     @DefaultValue("16384")
-    int getBatchSize();
+    String getBatchSize();
 
     @Key("linger.ms")
     @DefaultValue("1")
-    int getLingerMs();
+    String getLingerMs();
 
     @Key("key.serializery")
     @DefaultValue("org.apache.kafka.common.serialization.StringSerializer")

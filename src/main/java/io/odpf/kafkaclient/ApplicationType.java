@@ -4,7 +4,7 @@ public enum ApplicationType {
 
     PRODUCER, CONSUMER;
 
-    public Class getConfigClass() {
+    public Class<? extends CoreConfig> getConfigClass() {
         if (this == PRODUCER) return ProducerConfig.class;
         else return ConsumerConfig.class;
 

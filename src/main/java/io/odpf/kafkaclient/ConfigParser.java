@@ -32,7 +32,6 @@ public class ConfigParser {
         String propertyText;
         try {
 
-
             while ((propertyText = bufferedReader.readLine()) != null) {
                 if (propertyText.equals("producer")) continue;
                 String property = propertyText.split("=")[0];
@@ -42,7 +41,7 @@ public class ConfigParser {
             }
         } catch (Exception e) {
         }
-        return (CoreConfig) ConfigFactory.create(applicationType.getConfigClass(), configuration);
+        return ConfigFactory.create(applicationType.getConfigClass(), configuration);
 
     }
 

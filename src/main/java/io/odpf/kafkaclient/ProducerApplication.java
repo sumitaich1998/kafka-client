@@ -15,13 +15,11 @@ public class ProducerApplication implements Application {
     private Properties properties;
 
     public ProducerApplication(ProducerConfig producerConfig) {
-        this.kafkaProducer = new KafkaProducer<String, String>(createProperties(producerConfig));
+        this.kafkaProducer = new KafkaProducer<>(createProperties(producerConfig));
         bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     }
 
-
     public Properties createProperties(ProducerConfig producerConfig) {
-
 
         properties = new Properties();
         properties.put("bootstrap.servers", producerConfig.getBootstrapServers());
@@ -71,5 +69,4 @@ public class ProducerApplication implements Application {
             }
         }
     }
-
 }

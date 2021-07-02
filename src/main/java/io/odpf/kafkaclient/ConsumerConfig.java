@@ -9,11 +9,11 @@ public interface ConsumerConfig extends CoreConfig {
 
     @Key("enable.auto.commit")
     @DefaultValue("true")
-    boolean getEnableAutoCommit();
+    String getEnableAutoCommit();
 
     @Key("auto.commit.interval.ms")
     @DefaultValue("1000")
-    int getAutoCommitIntervalMs();
+    String getAutoCommitIntervalMs();
 
     @Key("session.timeout.ms")
     @DefaultValue("1000")
@@ -21,10 +21,10 @@ public interface ConsumerConfig extends CoreConfig {
 
     @Key("key.deserializer")
     @DefaultValue("org.apache.kafka.common.serialization.StringDeserializer")
-    Class getKeyDeserializer();
+    String getKeyDeserializer();
 
     @Key("value.deserializer")
     @DefaultValue("org.apache.kafka.common.serialization.StringDeserializer")
-    Class getValueDeserializer();
+    String getValueDeserializer();
 
 }
