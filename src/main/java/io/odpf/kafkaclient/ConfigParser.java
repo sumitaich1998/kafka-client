@@ -33,7 +33,6 @@ public class ConfigParser {
         try {
 
             while ((propertyText = bufferedReader.readLine()) != null) {
-                if (propertyText.equals("producer")) continue;
                 String property = propertyText.split("=")[0];
                 String value = propertyText.split("=")[1];
 
