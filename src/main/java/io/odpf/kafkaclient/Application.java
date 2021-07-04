@@ -8,9 +8,6 @@ import org.slf4j.LoggerFactory;
  */
 public interface Application {
 
-    /**
-     * The constant LOGGER.
-     */
     Logger LOGGER = LoggerFactory.getLogger(Application.class);
 
     /**
