@@ -8,17 +8,31 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Properties;
 
+/**
+ * The type Producer application.
+ */
 public class ProducerApplication implements Application {
 
     private final KafkaProducer<String, String> kafkaProducer;
     private final BufferedReader bufferedReader;
     private Properties properties;
 
+    /**
+     * Instantiates a new Producer application.
+     *
+     * @param producerConfig the producer config
+     */
     public ProducerApplication(ProducerConfig producerConfig) {
         this.kafkaProducer = new KafkaProducer<>(createProperties(producerConfig));
         bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     }
 
+    /**
+     * Create properties properties.
+     *
+     * @param producerConfig the producer config
+     * @return the properties
+     */
     public Properties createProperties(ProducerConfig producerConfig) {
 
         properties = new Properties();
@@ -53,6 +67,11 @@ public class ProducerApplication implements Application {
     }
 
 
+    /**
+     * Write event.
+     *
+     * @param eventData the event data
+     */
     void writeEvent(String... eventData) {
         String topic = eventData[0];
         String value = eventData[eventData.length - 1];

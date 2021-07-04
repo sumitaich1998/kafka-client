@@ -8,17 +8,34 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.HashMap;
 
+/**
+ * The type Config parser.
+ */
 public class ConfigParser {
 
     private File readFile;
+    /**
+     * The Application type.
+     */
     ApplicationType applicationType;
 
+    /**
+     * Instantiates a new Config parser.
+     *
+     * @param filePath         the file path
+     * @param applicationTypes the application types
+     */
     public ConfigParser(String filePath, ApplicationType applicationTypes) {
         this.readFile = new File(filePath);
         this.applicationType = applicationTypes;
     }
 
 
+    /**
+     * Parse core config.
+     *
+     * @return the core config
+     */
     public CoreConfig parse() {
         HashMap<String, String> configuration = new HashMap<>();
 

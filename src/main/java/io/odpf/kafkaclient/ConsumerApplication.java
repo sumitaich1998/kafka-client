@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Properties;
 
+/**
+ * The type Consumer application.
+ */
 public class ConsumerApplication implements Application{
 
     private final KafkaConsumer<String, String> kafkaConsumer;
@@ -18,12 +21,23 @@ public class ConsumerApplication implements Application{
     private ArrayList<String> topicList;
     private Properties properties;
 
+    /**
+     * Instantiates a new Consumer application.
+     *
+     * @param consumerConfig the consumer config
+     */
     public ConsumerApplication(ConsumerConfig consumerConfig) {
         this.kafkaConsumer = new KafkaConsumer<>(createProperties(consumerConfig));
         this.bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     }
 
 
+    /**
+     * Create properties properties.
+     *
+     * @param consumerConfig the consumer config
+     * @return the properties
+     */
     public Properties createProperties(ConsumerConfig consumerConfig) {
 
 
@@ -39,6 +53,12 @@ public class ConsumerApplication implements Application{
 
 
     }
+
+    /**
+     * Read event array list.
+     *
+     * @return the array list
+     */
     ArrayList<String> readEvent() {
         ArrayList<String> recordList = new ArrayList<>();
         ConsumerRecords<String, String> records = kafkaConsumer.poll(Duration.ofMillis(100));
@@ -48,6 +68,11 @@ public class ConsumerApplication implements Application{
         return recordList;
     }
 
+    /**
+     * Subscribe.
+     *
+     * @param topicList the topic list
+     */
     public void subscribe(ArrayList<String> topicList) {
         this.topicList = topicList;
         kafkaConsumer.subscribe(this.topicList);
