@@ -12,14 +12,15 @@ public class ProducerConsumerFactory {
      * @param configPath      the config path
      * @return the application
      */
-    public static Application createApplication(ApplicationType applicationType,String configPath) {
+    public static Application createApplication(ApplicationType applicationType, String configPath) {
 
         switch (applicationType) {
             case PRODUCER:
-                return new ProducerApplication((ProducerConfig) new ConfigParser(configPath,applicationType).parse());
+                return new ProducerApplication((ProducerConfig) new ConfigParser(configPath, applicationType).parse());
             case CONSUMER:
-                return new ConsumerApplication((ConsumerConfig) new ConfigParser(configPath,applicationType).parse());
-
+                return new ConsumerApplication((ConsumerConfig) new ConfigParser(configPath, applicationType).parse());
+            case INVALID:
+                throw new IllegalArgumentException("Invalid Application type");
         }
         return null;
     }
